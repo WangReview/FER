@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 """
-作者：wwm
-日期：2024年02月18日
+author：wwm
+data：2024-02-18
 """
 
 
@@ -10,7 +10,8 @@ import os
 import matplotlib.pyplot as plt
 
 
-# 记录每个epoch的训练集和测试集上的准确率和损失值，并绘制训练集和测试集上的准确率和损失值曲线
+# Record the accuracy and loss values on the training and testing sets of each epoch, 
+# and draw the accuracy and loss curve on the training and testing sets
 class RecorderMeter(object):
     def __init__(self):
         self.train_acc = []
@@ -30,7 +31,7 @@ class RecorderMeter(object):
         acc_path = os.path.join(save_path, 'train_test_Acc.jpg')
         loss_path = os.path.join(save_path, 'train_test_Loss.jpg')
 
-        # 绘制准确率曲线
+        # Draw accuracy curve
         fig_acc = plt.figure(1)
         plt.plot(self.train_acc, 'b', label='Train Acc')
         plt.plot(self.val_acc, 'r', label='Test Acc')
@@ -42,7 +43,7 @@ class RecorderMeter(object):
         plt.savefig(acc_path, dpi=300)
         plt.close(fig_acc)
 
-        # 绘制损失值曲线
+        # Draw loss value curve
         fig_loss = plt.figure(2)
         plt.plot(self.train_loss, 'b', label='Train Loss')
         plt.plot(self.val_loss, 'r', label='Test Loss')
